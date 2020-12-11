@@ -2,9 +2,9 @@ node
     {
         stage('Check Out')
         {
-           
             checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Pavansl/cucumber_report_generation.git']]])
-       
+            echo "current build number: ${currentBuild.number}"
+            echo "previous build number: ${currentBuild.previousBuild.getNumber()}"
         }
         stage('Clean')
         {
